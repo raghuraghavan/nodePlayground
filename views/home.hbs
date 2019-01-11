@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>some website</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    {{> header}}
+    <p>
+        <h2>Welcome, {{screamIt 'Raghu Raghavan'}}</h2>
+        <b>Your current location: </b><br />
+        {{address.street}} <br />
+        {{address.city}} <br />
+        {{address.county}} &nbsp; {{address.country}} &nbsp;{{address.pincode}}
+    </p>
+    {{> footer}}
+</body>
+
+</html>
