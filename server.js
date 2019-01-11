@@ -38,7 +38,6 @@ app.get('/', (req, res) => {
             country: 'US',
             pincode: 95391
         },
-
     })
 });
 
@@ -46,13 +45,20 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'Page Title'
-
     });
 });
+
 //json response
 app.get('/bad', (req, res) => {
     res.send({ 'message': 'Wrong page requested' })
-})
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        welcomeMessage: 'Portfolio',
+        pageTitle: 'Projects'
+    });
+});
 
 app.listen(port, () => {
     console.log(`server listening @port ${port}`);
