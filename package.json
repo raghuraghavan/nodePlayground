@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "hbs": "^4.0.0"
+    "hbs": "^4.0.1",
+    "node-statsd": "^0.1.1",
+    "response-time": "^2.3.2"
   }
 }

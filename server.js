@@ -1,18 +1,30 @@
 const express = require('express');
 const handlebars = require('hbs');
 const fs = require('fs');
-const port = process.env.PORT || 3000;
+const responseTime = require('response-time');
+var StatsD = require('node-statsd');
 const app = express();
 
-app.use((req, res, next) => {
+
+const stats = new StatsD();
+const port = process.env.PORT || 3000;
+
+app.use(responseTime((req, res, time) => {
     var now = new Date().toString();
-    var log = `Reqeust recieved at ${now}, Method-Type ${req.method}, url ${req.url}`;
+
+    var log = `${now}, ${req.method}, ${req.url}, ${time.toFixed(3)} ms`;
     console.log(log);
     fs.appendFile('server.log', log + '\n', (err) => {
         if (err) {
             console.log('Unable to append to server.log');
         }
     });
+}));
+
+app.use((req, res, next) => {
+    // var now = new Date().toString();
+    // var log = `Requested at ${now}, Method-Type ${req.method}, url ${req.url} `;
+    // console.log(log);
     next();
 })
 
