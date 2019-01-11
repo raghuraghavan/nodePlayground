@@ -19,8 +19,8 @@ geeCode.geocodeAddress(argv.address, (errorMessage, result) => {
     } else {
         //console.log(JSON.stringify(result, undefined, 2));
         console.log(`Please wait ...  \nRequesting current Temperatures of ${result.Address}`);
-        console.log(`Latitude             : ${result.Latitude}`);
-        console.log(`longitude            : ${result.longitude}`)
+        //console.log(`Latitude             : ${result.Latitude}`);
+        //console.log(`longitude            : ${result.longitude}`)
         Weather.getWeather(result.Latitude, result.longitude, (errorMessage, weatherResult) => {
             if (errorMessage) {
                 console.log(errorMessage);

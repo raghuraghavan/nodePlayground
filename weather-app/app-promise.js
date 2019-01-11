@@ -20,7 +20,7 @@ axios.get(geocodeUrl)
         const street = response.data.results[0].locations[0].street;
         const address = street + ' ' + response.data.results[0].locations[0].adminArea5 + ' ' + response.data.results[0].locations[0].adminArea3 + ' ' + response.data.results[0].locations[0].adminArea1 + ' ' + response.data.results[0].locations[0].postalCode;
         const weatherUrl = `https://api.darksky.net/forecast/34aae13d473a32773e73d8203110b7b4/${lat},${lng}`;
-        console.log(`Please wait .....\nRetriving current temp for the ${address}  \n`);
+        console.log(`Please wait .....\nRetriving current temp for ${address}`);
         return axios.get(weatherUrl);
     }).then((response) => {
         const currentTemp = response.data.currently.temperature;
