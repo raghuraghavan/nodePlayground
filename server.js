@@ -98,7 +98,6 @@ function errorNotification(err, str, req) {
 // setting up the responsetime.. 
 app.use(responseTime((req, res, time) => {
     var now = new Date().toString();
-
     var log = `${now}, ${req.method}, ${req.url}, ${time.toFixed(3)} ms`;
     console.log(log);
     fs.appendFile('server.log', log + '\n', (err) => {
